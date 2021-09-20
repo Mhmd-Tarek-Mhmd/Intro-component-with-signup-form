@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Intro component with sign up form</title>
+
+    <!-- Font Style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+
+    <!-- Page Style -->
+    <style>
+      /* Global Style */
+      :root {
+        --red: hsl(0, 100%, 74%);
+        --green: hsl(154, 59%, 51%);
+        --blue: hsl(248, 32%, 49%);
+
+        --dark-blue: hsl(249, 10%, 26%);
+        --grayish-blue: hsl(246, 25%, 77%);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        background: var(--red) url(images/bg-intro-mobile.png);
+      }
+      @media (min-width: 768px) {
+        body {
+          text-align: left;
+          background: var(--red) url(images/bg-intro-desktop.png);
+        }
+      }
+      ::placeholder {
+        color: var(--grayish-blue);
+      }
+
+      /* Utilities */
+      .btn {
+        border: none;
+        color: inherit;
+        font-family: inherit;
+      }
+      .btn:hover {
+        opacity: 0.9;
+        cursor: pointer;
+      }
+      .w-100 {
+        width: 100%;
+      }
+      .box-shadow {
+        box-shadow: 0 8px 2px 0 hsl(249deg 10% 26% / 20%);
+      }
+
+      /* Hero Section */
+      section.hero {
+        padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 1000px;
+      }
+      @media (min-width: 768px) {
+        section.hero {
+          padding: 0;
+          height: 100vh;
+          flex-direction: row;
+          justify-content: space-evenly;
+          align-items: center;
+        }
+        section.hero > * {
+          width: 45%;
+        }
+        section.hero button br {
+          display: none;
+        }
+      }
+      @media (min-width: 1200px) {
+        section.hero {
+          height: 800px;
+        }
+        section.hero > * {
+          width: 35%;
+        }
+      }
+      section.hero button {
+        background-color: var(--blue);
+        border-radius: 10px;
+        margin-bottom: 24px;
+        height: 88px;
+        font-size: 15px;
+      }
+      section.hero button span {
+        font-weight: 700;
+      }
+
+      /* [1] Header */
+      header h1 {
+        margin-bottom: 21px;
+      }
+      @media (min-width: 768px) {
+        header h1 {
+          font-size: 2em;
+        }
+      }
+      @media (min-width: 992px) {
+        header h1 {
+          font-size: 2.5em;
+        }
+      }
+      @media (min-width: 1200px) {
+        header h1 {
+          font-size: 3em;
+        }
+      }
+      @media (max-width: 767px) {
+        header p {
+          margin-bottom: 63px;
+        }
+      }
+
+      /* [2] Form */
+      form {
+        background-color: #fff;
+        padding: 24px;
+        border-radius: 5px;
+      }
+      form > div {
+        position: relative;
+      }
+      form > div.error {
+        margin-bottom: 16px;
+      }
+      form > div .error-msg,
+      form > div img {
+        position: absolute;
+      }
+      form > div .error-msg {
+        bottom: 0;
+        right: 0;
+        color: var(--red);
+        font-size: 11px;
+      }
+      form > div img {
+        right: 25px;
+        top: 17px;
+      }
+
+      form input {
+        font-family: inherit;
+        height: 56px;
+        border: 1px solid var(--grayish-blue);
+        padding: 23px 20px;
+        outline: none;
+        border-radius: 5px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      @media (min-width: 1200px) {
+        form {
+          padding: 40px;
+        }
+        form input {
+          padding: 23px 32px;
+          margin-bottom: 20px;
+        }
+      }
+      form input:focus {
+        border-color: var(--blue);
+      }
+      form input.error {
+        border-color: var(--red);
+      }
+      form input[type="submit"] {
+        background-color: var(--green);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 0;
+        margin-bottom: 9px;
+        box-shadow: inset 0 -5px 2px 0 hsl(249deg 10% 26% / 20%);
+      }
+      form p {
+        color: var(--grayish-blue);
+        font-size: 11px;
+        padding: 0 20px;
+        line-height: 1.9;
+        text-align: center;
+      }
+      form p span {
+        color: var(--red);
+        font-weight: 700;
+      }
+      @media (min-width: 992px) {
+        form input[type="submit"] {
+          margin-bottom: 18px;
+        }
+        form p {
+          padding: 0;
+        }
+      }
+
+      /* Footer area */
+      footer .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+      footer .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <header>
+        <h1>Learn to code by<br />watching others</h1>
+        <p>
+          See how experienced developers solve problems in real-time. Watching
+          scripted tutorials is great, but understanding how developers think is
+          invaluable.
+        </p>
+      </header>
+
+      <div>
+        <button class="btn w-100 box-shadow">
+          <span> Try it free 7 days </span>then <br />$20/mo. thereafter
+        </button>
+
+        <form class="box-shadow">
+          <div>
+            <input
+              type="text"
+              name="first"
+              required
+              placeholder="First Name"
+              class="w-100"
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="last"
+              required
+              placeholder="Last Name"
+              class="w-100"
+            />
+          </div>
+
+          <div>
+            <input
+              type="email"
+              name="mail"
+              required
+              placeholder="Email Address"
+              autocomplete="email"
+              class="w-100"
+            />
+          </div>
+
+          <div>
+            <input
+              type="password"
+              name="password"
+              required
+              placeholder="Password"
+              class="w-100"
+            />
+          </div>
+
+          <div>
+            <input
+              type="submit"
+              value="Claim your free trial"
+              class="btn w-100"
+              onclick="validation(event)"
+            />
+          </div>
+          <p>
+            By clicking the button, you are agreeing to our
+            <span>Terms and Services</span>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/Mhmd-Tarek-Mhmd" target="_blank"
+          >Mhmd Tarek Mhmd</a
+        >.
+      </p>
+    </footer>
+
+    <script>
+      function validation(e) {
+        document.querySelectorAll("form input").forEach((ele, i) => {
+          e.preventDefault();
+          const errorMsgs = document.querySelectorAll("form .error-msg");
+          const errorSigns = document.querySelectorAll("form img");
+
+          errorMsgs[i] !== undefined && errorMsgs[i].remove();
+          errorSigns[i] !== undefined && errorSigns[i].remove();
+
+          if (!ele.checkValidity()) {
+            const node = document.createElement("span");
+            const errorSign = document.createElement("img");
+
+            ele.classList.add("error");
+            ele.parentElement.className = "error";
+
+            errorSign.src = "images/icon-error.svg";
+            errorSign.alt = "Error sign";
+
+            node.className = "error-msg";
+            node.textContent = ele.value.length
+              ? "Looks like this is not an email"
+              : ele.placeholder + " cannot be empty";
+
+            ele.parentElement.appendChild(node);
+            ele.parentElement.appendChild(errorSign);
+          } else {
+            ele.classList.remove("error");
+            ele.parentElement.className = "";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
