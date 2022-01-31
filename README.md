@@ -5,7 +5,7 @@ This is a solution to the [Intro component with sign up form challenge on Fronte
 ## Links
 
 - Live Site [URL](https://mhmd-tarek-mhmd.github.io/Intro-component-with-signup-form)
-- Solution [URL](https://www.frontendmentor.io/solutions/intro-component-with-signup-form-)
+- Solution [URL](https://www.frontendmentor.io/solutions/intro-component-with-signup-form-mfSbtPbvB)
 
 ## Screenshots
 
