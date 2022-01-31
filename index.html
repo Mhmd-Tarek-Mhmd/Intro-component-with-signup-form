@@ -2,33 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <title>Frontend Mentor | Intro component with sign up form</title>
-
-    <!-- Font Style -->
+    <title>Intro component with sign up form</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
     />
-
-    <!-- Page Style -->
     <style>
-      /* Global Style */
+      /* Global styles */
       :root {
         --red: hsl(0, 100%, 74%);
-        --green: hsl(154, 59%, 51%);
-        --blue: hsl(248, 32%, 49%);
-
-        --dark-blue: hsl(249, 10%, 26%);
-        --grayish-blue: hsl(246, 25%, 77%);
+        --purple: hsl(248, 32%, 49%);
+        --black: hsl(249, 10%, 26%);
+        --gray: hsl(246, 25%, 77%);
+        --white: hsl(0, 0%, 100%);
+      }
+      ::placeholder {
+        opacity: 0.8;
+        color: inherit;
+        font-size: 14px;
+        font-weight: 600;
       }
       * {
         margin: 0;
@@ -36,314 +32,289 @@
         box-sizing: border-box;
       }
       body {
-        color: #fff;
+        color: var(--white);
         font-family: "Poppins", sans-serif;
-        text-align: center;
-        background: var(--red) url(images/bg-intro-mobile.png);
+        background: var(--red) url(images/bg-intro-mobile.png) top center;
+      }
+      @media (min-width: 768px) and (max-height: 600px) {
+        body {
+          padding: 50px 0;
+        }
       }
       @media (min-width: 768px) {
         body {
-          text-align: left;
-          background: var(--red) url(images/bg-intro-desktop.png);
-        }
-      }
-      ::placeholder {
-        color: var(--grayish-blue);
-      }
-
-      /* Utilities */
-      .btn {
-        border: none;
-        color: inherit;
-        font-family: inherit;
-      }
-      .btn:hover {
-        opacity: 0.9;
-        cursor: pointer;
-      }
-      .w-100 {
-        width: 100%;
-      }
-      .box-shadow {
-        box-shadow: 0 8px 2px 0 hsl(249deg 10% 26% / 20%);
-      }
-
-      /* Hero Section */
-      section.hero {
-        padding: 0 24px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 1000px;
-      }
-      @media (min-width: 768px) {
-        section.hero {
-          padding: 0;
-          height: 100vh;
-          flex-direction: row;
-          justify-content: space-evenly;
-          align-items: center;
-        }
-        section.hero > * {
-          width: 45%;
-        }
-        section.hero button br {
-          display: none;
-        }
-      }
-      @media (min-width: 1200px) {
-        section.hero {
-          height: 800px;
-        }
-        section.hero > * {
-          width: 35%;
-        }
-      }
-      section.hero button {
-        background-color: var(--blue);
-        border-radius: 10px;
-        margin-bottom: 24px;
-        height: 88px;
-        font-size: 15px;
-      }
-      section.hero button span {
-        font-weight: 700;
-      }
-
-      /* [1] Header */
-      header h1 {
-        margin-bottom: 21px;
-      }
-      @media (min-width: 768px) {
-        header h1 {
-          font-size: 2em;
-        }
-      }
-      @media (min-width: 992px) {
-        header h1 {
-          font-size: 2.5em;
-        }
-      }
-      @media (min-width: 1200px) {
-        header h1 {
-          font-size: 3em;
+          background-image: url(images/bg-intro-desktop.png);
         }
       }
       @media (max-width: 767px) {
-        header p {
-          margin-bottom: 63px;
+        body {
+          padding-bottom: 50px;
         }
       }
 
-      /* [2] Form */
-      form {
-        background-color: #fff;
-        padding: 24px;
-        border-radius: 5px;
-      }
-      form > div {
-        position: relative;
-      }
-      form > div.error {
-        margin-bottom: 16px;
-      }
-      form > div .error-msg,
-      form > div img {
-        position: absolute;
-      }
-      form > div .error-msg {
-        bottom: 0;
-        right: 0;
-        color: var(--red);
-        font-size: 11px;
-      }
-      form > div img {
-        right: 25px;
-        top: 17px;
-      }
+      /* 
+        Header area
+      */
 
-      form input {
-        font-family: inherit;
-        height: 56px;
-        border: 1px solid var(--grayish-blue);
-        padding: 23px 20px;
-        outline: none;
-        border-radius: 5px;
-        font-weight: 600;
-        margin-bottom: 16px;
+      header {
+        display: grid;
+        justify-content: center;
+      }
+      .trial {
+        height: 60px;
+        display: block;
+        color: inherit;
+        padding: 18px 0;
+        text-align: center;
+        text-decoration: none;
+        background-color: var(--purple);
+      }
+      .trial span,
+      .txt p {
+        opacity: 0.8;
+      }
+      .txt h1 {
+        font-size: 3em;
+        line-height: 1.3;
+        margin-bottom: 24px;
       }
       @media (min-width: 1200px) {
-        form {
-          padding: 40px;
-        }
-        form input {
-          padding: 23px 32px;
-          margin-bottom: 20px;
-        }
-      }
-      form input:focus {
-        border-color: var(--blue);
-      }
-      form input.error {
-        border-color: var(--red);
-      }
-      form input[type="submit"] {
-        background-color: var(--green);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        line-height: 0;
-        margin-bottom: 9px;
-        box-shadow: inset 0 -5px 2px 0 hsl(249deg 10% 26% / 20%);
-      }
-      form p {
-        color: var(--grayish-blue);
-        font-size: 11px;
-        padding: 0 20px;
-        line-height: 1.9;
-        text-align: center;
-      }
-      form p span {
-        color: var(--red);
-        font-weight: 700;
-      }
-      @media (min-width: 992px) {
-        form input[type="submit"] {
-          margin-bottom: 18px;
-        }
-        form p {
+        header {
+          gap: 70px;
           padding: 0;
         }
       }
-
-      /* Footer area */
-      footer .attribution {
-        font-size: 11px;
-        text-align: center;
-        margin-bottom: 5px;
+      @media (min-width: 768px) {
+        header {
+          gap: 20px;
+          padding: 0 24px;
+          min-height: 100vh;
+          align-items: center;
+          align-content: center;
+          grid-template-rows: 558px;
+          grid-template-columns: minmax(0, 500px) minmax(0, 540px);
+        }
       }
-      footer .attribution a {
-        color: hsl(228, 45%, 44%);
+      @media (max-width: 767px) {
+        header {
+          gap: 63px;
+          padding: 0 10px;
+          grid-template-rows: 310px 572px;
+          grid-template-columns: minmax(0, 327px);
+        }
+        .trial {
+          height: 88px;
+          padding: 20px 42px;
+          line-height: initial;
+        }
+        .txt {
+          align-self: end;
+          text-align: center;
+        }
+        .txt h1 {
+          font-size: 1.75em;
+          margin-bottom: 22px;
+        }
+      }
+
+      .trial,
+      .sign-up,
+      .sign-up input {
+        border-radius: 6px;
+      }
+      .trial,
+      .sign-up {
+        box-shadow: rgba(0, 0, 0, 0.1) 0 8px 3px;
+      }
+      .sign-up {
+        gap: 20px;
+        display: grid;
+        padding: 40px;
+        margin-top: 24px;
+        background-color: var(--white);
+      }
+      .sign-up input {
+        width: 100%;
+        height: 56px;
+        font: inherit;
+        font-weight: 600;
+        padding-left: 6.5%;
+        color: var(--black);
+        caret-color: var(--purple);
+        border: 1px solid var(--gray);
+      }
+      .sign-up input:not([type="submit"]):focus {
+        outline: none;
+        border-color: var(--purple);
+      }
+      .sign-up input[type="submit"] {
+        border: none;
+        color: inherit;
+        padding: 0 4px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        will-change: opacity;
+        transition: 0.3s opacity;
+        text-transform: uppercase;
+        background-color: hsl(154, 59%, 51%);
+        box-shadow: inset rgba(0, 0, 0, 0.1) 0 -4px 0;
+      }
+      .sign-up input[type="submit"]:hover {
+        opacity: 0.8;
+      }
+      .sign-up p {
+        font-size: 11px;
+        margin-top: -6px;
+        font-weight: 500;
+        text-align: center;
+        color: var(--gray);
+      }
+      .sign-up span {
+        font-weight: 700;
+        color: var(--red);
+      }
+      .sign-up > .error {
+        color: var(--red);
+        position: relative;
+      }
+      .sign-up .error input {
+        color: inherit;
+        border: 2px solid;
+      }
+      .sign-up .error img {
+        top: 16px;
+        right: 25px;
+        position: absolute;
+      }
+      .sign-up .error em {
+        display: block;
+        font-size: 11px;
+        margin-top: 8px;
+        font-weight: 500;
+        text-align: right;
+      }
+      @media (max-width: 767px) {
+        .sign-up {
+          gap: 16px;
+          padding: 24px;
+        }
+        .sign-up p {
+          padding: 0 24px;
+        }
+        .sign-up .error img {
+          right: 14px;
+        }
       }
     </style>
   </head>
   <body>
-    <section class="hero">
-      <header>
-        <h1>Learn to code by<br />watching others</h1>
+    <header>
+      <div class="txt">
+        <h1>Learn to code by watching others</h1>
         <p>
           See how experienced developers solve problems in real-time. Watching
           scripted tutorials is great, but understanding how developers think is
           invaluable.
         </p>
-      </header>
+      </div>
 
-      <div>
-        <button class="btn w-100 box-shadow">
-          <span> Try it free 7 days </span>then <br />$20/mo. thereafter
-        </button>
+      <div class="form">
+        <a href="/" class="trial">
+          <strong>Try it free 7 days</strong>
+          <span>then $20/mo. thereafter</span>
+        </a>
 
-        <form class="box-shadow">
+        <form class="sign-up" novalidate onsubmit="validate(event)">
           <div>
             <input
               type="text"
-              name="first"
-              required
+              name="first-name"
               placeholder="First Name"
-              class="w-100"
+              aria-label="Enter your first name"
+              required
             />
           </div>
-
           <div>
             <input
               type="text"
-              name="last"
-              required
+              name="last-name"
               placeholder="Last Name"
-              class="w-100"
+              aria-label="Enter your last name"
+              required
             />
           </div>
-
           <div>
             <input
               type="email"
               name="mail"
-              required
               placeholder="Email Address"
-              autocomplete="email"
-              class="w-100"
+              aria-label="Enter your email address"
+              required
             />
           </div>
-
           <div>
             <input
               type="password"
               name="password"
-              required
               placeholder="Password"
-              class="w-100"
+              aria-label="Enter your password"
+              required
             />
           </div>
-
-          <div>
-            <input
-              type="submit"
-              value="Claim your free trial"
-              class="btn w-100"
-              onclick="validation(event)"
-            />
-          </div>
+          <input type="submit" value="Claim your free trial" />
           <p>
             By clicking the button, you are agreeing to our
             <span>Terms and Services</span>
           </p>
         </form>
       </div>
-    </section>
-
-    <footer>
-      <p class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by
-        <a href="https://github.com/Mhmd-Tarek-Mhmd" target="_blank"
-          >Mhmd Tarek Mhmd</a
-        >.
-      </p>
-    </footer>
+    </header>
 
     <script>
-      function validation(e) {
-        document.querySelectorAll("form input").forEach((ele, i) => {
-          e.preventDefault();
-          const errorMsgs = document.querySelectorAll("form .error-msg");
-          const errorSigns = document.querySelectorAll("form img");
+      function validate(e) {
+        e.preventDefault();
 
-          errorMsgs[i] !== undefined && errorMsgs[i].remove();
-          errorSigns[i] !== undefined && errorSigns[i].remove();
+        if (!e.target.checkValidity()) {
+          const elements = [...e.target.elements];
+          elements.pop();
 
-          if (!ele.checkValidity()) {
-            const node = document.createElement("span");
-            const errorSign = document.createElement("img");
+          elements.forEach((ele) =>
+            !ele.checkValidity() ? error(ele) : valid(ele.parentElement)
+          );
+        } else {
+          e.target.submit();
+        }
+      }
+      function error(target) {
+        let errorMsg;
+        errorMsg = !target.value.length
+          ? `${target.placeholder} cannot be empty`
+          : "Looks like this is not an email";
 
-            ele.classList.add("error");
-            ele.parentElement.className = "error";
+        const parent = target.parentElement;
+        const template = `
+          <div class='wrapper'>
+            <img src='images/icon-error.svg' alt='' />
+            <div role="alert">
+              <em>${errorMsg}</em>
+            </div>
+          </div
+        `;
 
-            errorSign.src = "images/icon-error.svg";
-            errorSign.alt = "Error sign";
-
-            node.className = "error-msg";
-            node.textContent = ele.value.length
-              ? "Looks like this is not an email"
-              : ele.placeholder + " cannot be empty";
-
-            ele.parentElement.appendChild(node);
-            ele.parentElement.appendChild(errorSign);
-          } else {
-            ele.classList.remove("error");
-            ele.parentElement.className = "";
+        if (!parent.classList.contains("error")) {
+          parent.className += "error";
+          parent.innerHTML += template;
+        } else {
+          if (target.type === "email") {
+            parent.querySelector(".wrapper em").innerHTML = errorMsg;
           }
-        });
+        }
+      }
+      function valid(target) {
+        if (target.classList.contains("error")) {
+          target.querySelector(".wrapper").remove();
+          target.classList.remove("error");
+        }
       }
     </script>
   </body>
