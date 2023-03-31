@@ -53,10 +53,10 @@
       }
 
       /* 
-        Header area
+        Main area
       */
 
-      header {
+      main {
         display: grid;
         justify-content: center;
       }
@@ -75,7 +75,7 @@
         margin-bottom: 24px;
       }
       @media (min-width: 768px) {
-        header {
+        main {
           gap: 20px;
           padding: 0 24px;
           min-height: 100vh;
@@ -86,13 +86,13 @@
         }
       }
       @media (min-width: 1200px) {
-        header {
+        main {
           gap: 70px;
           padding: 0;
         }
-      }      
+      }
       @media (max-width: 767px) {
-        header {
+        main {
           gap: 63px;
           padding: 0 10px;
           grid-template-rows: 310px 572px;
@@ -203,7 +203,7 @@
     </style>
   </head>
   <body>
-    <header>
+    <main>
       <div class="txt">
         <h1>Learn to code by watching others</h1>
         <p>
@@ -263,7 +263,7 @@
           </p>
         </form>
       </div>
-    </header>
+    </main>
 
     <script>
       function validate(e) {
